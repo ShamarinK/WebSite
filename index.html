@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мониторы: всё о выборе, типах и истории</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a2a6c, #2a3a7c);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #4fc3f7;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #4fc3f7;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://displaysdb.ru/img/serviceslist/1.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4fc3f7;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #29b6f6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #1a2a6c;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background: #4fc3f7;
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #1a2a6c;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #1a2a6c;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .selector {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #1a2a6c;
+        }
+        
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #e3f2fd;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .result h3 {
+            color: #1a2a6c;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: #1a2a6c;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: #4fc3f7;
+        }
+        
+        .footer-links {
+            display: flex;
+            margin: 1.5rem 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4fc3f7;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Monitor<span>Expert</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#history">История</a></li>
+                        <li><a href="#matrix">Типы матриц</a></li>
+                        <li><a href="#connections">Подключения</a></li>
+                        <li><a href="#types">Виды мониторов</a></li>
+                        <li><a href="#selector">Выбор монитора</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Всё о мониторах</h1>
+            <p>От истории развития до современных технологий. Узнайте всё, что нужно для правильного выбора монитора.</p>
+            <a href="#selector" class="btn">Подобрать монитор</a>
+        </div>
+    </section>
+
+    <section id="history">
+        <div class="container">
+            <div class="section-title">
+                <h2>История мониторов</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://yandex-images.clstorage.net/9vl8K4F01/d3c6ae_l41/4lyiNrY7P3zZnMQpNeea7fvAHZrZwwOQAmC04fjaGhTFRxe1KgqZ9Q-aREohG0UvAQtjs2Sq2fjT-dlAmqNcYaYI52X8fjx40I6NNSekiuD2gxGMi4JXnlhb1pLd-3Zsp202zFxEwaMOzAVdZlwvSBQvEOZ3lMmjj6KMVYCZJR71db0Atip0eeutnhYT7q3h06IemveOPsovbNuR_eNfcqdNFtVHRfCEJ-YINkNxGFF9LxTPV7bQjqWUmV24tToH-VS1G4wRQ3_KvLwhLuGMw--lOJ7dvT_bGH3Buun6RGCTch7QalPHtybRDglZUwRuew4KyUO316eRo7Blj7wIOuxwsy63A0FC1JumJR7rle7KvzK626oZ4jtK0br41GVsvF4y5llszq8-_xEqek4IbXU8FuZgmcuCqYGSbLm2EBfFW5g6rjBjeM-qgioA273MzJgdq-CfOsgIRv6A8sFeZINBNuZFWsuGLO4KHmdiIWNwPzr6dZvVgKGrpXqqmRMB-We-EpM9QHrngLgWJsOn4PSbI5vKojv2MWr8msnAf0iGUzLXS2zWuzz8FAplWhFWfQYj_mqi6qWTpZRcgLwzM9dHkyWxEGVd0Y65GSDwvfHSjRiz2Lsg4RhV6L31y0R5t2cowHNfyY4d6xwDcX41cVAuKOh5nve3lqmzbLuFBAz3ZJQjijFXZ8uAgRog8L_-xKs_t8GlEssSVtug7uFLVZJ1G-d6b-uBEu88NXtKP2NhJA_Ee6bav6OiuEyHgz8Z0U2yNb0BfFzxh7oTAdm5xdCYOK_hrTzWMWnBtvXjbkqSXRrSRXDzmRDAPzZXRx1fRR0I4HGF65y1roNLo4sDBOZ1uy-gKXRUz4uuFzjhuOfIoTCWxqoy2ChO2rL49X1LnHALwWBL0YEy3iokRFEFRFgKEslTnsGCtKekT5ilFxzCcIYeiSReQ8iBuBUO0LDiwoApifSPPO4IYtm77Ns" alt="ЭЛТ монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>ЭЛТ-мониторы</h3>
+                        <p>Первые мониторы использовали электронно-лучевую трубку (ЭЛТ). Они были громоздкими, тяжелыми и потребляли много энергии, но доминировали на рынке с 1950-х до начала 2000-х годов.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://monitorvsem.ru/wp-content/uploads/2019/09/Lcd-displej22.jpg" alt="ЖК монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Появление ЖК-технологии</h3>
+                        <p>В 1990-х годах началось массовое производство жидкокристаллических (ЖК) мониторов. Они были тоньше, легче и потребляли меньше энергии, что привело к постепенному вытеснению ЭЛТ.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://www.ixbt.com/img/n1/news/2020/0/1/Predator_CG552K_right-facing_575px.jpg" alt="Современный монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Современные технологии</h3>
+                        <p>Сегодня доминируют LED, OLED и QLED технологии с высоким разрешением, высокой частотой обновления и поддержкой HDR. Мониторы стали не только инструментом, но и элементом дизайна.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="matrix" style="background-color: #eef2f7;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Типы матриц мониторов</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тип матрицы</th>
+                            <th>Преимущества</th>
+                            <th>Недостатки</th>
+                            <th>Применение</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TN (Twisted Nematic)</td>
+                            <td>Низкое время отклика, невысокая стоимость</td>
+                            <td>Плохие углы обзора, низкая цветопередача</td>
+                            <td>Игры, офисные задачи</td>
+                        </tr>
+                        <tr>
+                            <td>IPS (In-Plane Switching)</td>
+                            <td>Отличная цветопередача, широкие углы обзора</td>
+                            <td>Выше время отклика, дороже TN</td>
+                            <td>Дизайн, фотообработка, универсальное использование</td>
+                        </tr>
+                        <tr>
+                            <td>VA (Vertical Alignment)</td>
+                            <td>Высокая контрастность, хорошая цветопередача</td>
+                            <td>Среднее время отклика, могут быть проблемы с равномерностью подсветки</td>
+                            <td>Просмотр фильмов, работа с текстом</td>
+                        </tr>
+                        <tr>
+                            <td>OLED (Organic Light-Emitting Diode)</td>
+                            <td>Идеальная контрастность, тонкий дизайн, быстрый отклик</td>
+                            <td>Высокая стоимость, риск выгорания пикселей</td>
+                            <td>Профессиональная работа с цветом, просмотр контента</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="connections">
+        <div class="container">
+            <div class="section-title">
+                <h2>Типы подключений</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>VGA (D-Sub)</h3>
+                        <p>Аналоговый интерфейс, появившийся в 1987 году. Устаревший стандарт, поддерживающий низкие разрешения. Не рекомендуется для современных мониторов.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>DVI</h3>
+                        <p>Цифровой интерфейс, представленный в 1999 году. Поддерживает более высокие разрешения, чем VGA. Бывает нескольких вариантов: DVI-A (аналоговый), DVI-D (цифровой), DVI-I (комбинированный).</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>HDMI</h3>
+                        <p>Самый популярный интерфейс для передачи видео и аудио. Поддерживает высокие разрешения (до 8K), HDR и высокую частоту обновления. Имеет несколько версий с разными возможностями.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>DisplayPort</h3>
+                        <p>Интерфейс, разработанный специально для компьютерных мониторов. Поддерживает самые высокие разрешения и частоты обновления. Идеален для игровых мониторов и профессиональных дисплеев.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>USB-C</h3>
+                        <p>Современный универсальный интерфейс, который может передавать видео, данные и питание по одному кабелю. Особенно популярен в ноутбуках и современных мониторах.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Thunderbolt</h3>
+                        <p>Высокоскоростной интерфейс на основе DisplayPort и PCI Express. Обеспечивает максимальную пропускную способность, поддерживает подключение нескольких мониторов и периферии через один порт.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="types" style="background-color: #eef2f7;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Виды мониторов</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://avatars.mds.yandex.net/get-mpic/4866035/2a0000019305f68a56918bef43a80e2ba666/orig" alt="Игровой монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Игровые мониторы</h3>
+                        <p>Характеризуются высокой частотой обновления (144 Гц и выше), малым временем отклика и поддержкой технологий синхронизации (G-Sync, FreeSync).</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://www.foroffice.ru/upload/iblock/5cb/eizo_coloredge_cg246w_2.jpg" alt="Профессиональный монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Профессиональные мониторы</h3>
+                        <p>Предназначены для дизайнеров, фотографов и видеоинженеров. Имеют высокую точность цветопередачи, широкий цветовой охват и калибровку на заводе.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://cdn1.ozone.ru/s3/multimedia-t/6100304417.jpg" alt="Офисный монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Офисные мониторы</h3>
+                        <p>Оптимизированы для работы с текстом и таблицами. Часто имеют антибликовое покрытие, регулируемую подставку и технологию защиты глаз.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://i.pinimg.com/originals/7e/f9/fa/7ef9fa1bc466066550b1462b662bf0f7.jpg" alt="Ультраширокий монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Ультраширокие мониторы</h3>
+                        <p>Имеют соотношение сторон 21:9 или больше. Обеспечивают более иммерсивный опыт в играх и увеличенное рабочее пространство для многозадачности.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://www.ixbt.com/img/n1/news/2023/10/1/02a11a52-688b-4ced-ac35-e78a8974951c_large.png" alt="Изогнутый монитор">
+                    </div>
+                    <div class="card-content">
+                        <h3>Изогнутые мониторы</h3>
+                        <p>Имеют изогнутую панель, которая обеспечивает более равномерное расстояние от глаз до всех участков экрана, уменьшая искажения и усталость глаз.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://avatars.mds.yandex.net/i?id=f2f22d55adcdeb7c414517f991511b7d_l-5426221-images-thumbs&n=13" alt="Монитор 4K">
+                    </div>
+                    <div class="card-content">
+                        <h3>Мониторы 4K и 8K</h3>
+                        <p>Предлагают сверхвысокое разрешение для максимальной детализации изображения. Идеальны для профессиональной работы с графикой, монтажа видео и просмотра контента высокого качества.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="selector">
+        <div class="container">
+            <div class="section-title">
+                <h2>Подбор монитора</h2>
+            </div>
+            <div class="selector">
+                <div class="form-group">
+                    <label for="purpose">Основное предназначение:</label>
+                    <select id="purpose">
+                        <option value="">Выберите вариант</option>
+                        <option value="office">Офисная работа/учеба</option>
+                        <option value="gaming">Игры</option>
+                        <option value="design">Дизайн/фотография</option>
+                        <option value="media">Просмотр фильмов/мультимедиа</option>
+                        <option value="universal">Универсальное использование</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="budget">Бюджет:</label>
+                    <select id="budget">
+                        <option value="">Выберите вариант</option>
+                        <option value="low">До 15 000 руб.</option>
+                        <option value="medium">15 000 - 30 000 руб.</option>
+                        <option value="high">30 000 - 50 000 руб.</option>
+                        <option value="premium">Свыше 50 000 руб.</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="size">Предпочтительный размер:</label>
+                    <select id="size">
+                        <option value="">Выберите вариант</option>
+                        <option value="small">До 24 дюймов</option>
+                        <option value="medium">24-27 дюймов</option>
+                        <option value="large">27-32 дюйма</option>
+                        <option value="ultrawide">Свыше 32 дюймов (включая ультраширокие)</option>
+                    </select>
+                </div>
+                
+                <button class="btn" onclick="calculateRecommendation()">Подобрать монитор</button>
+                
+                <div class="result" id="result">
+                    <h3>Рекомендация</h3>
+                    <p id="recommendation-text"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Monitor<span>Expert</span></div>
+                <p>Всё, что нужно знать о мониторах</p>
+                <div class="footer-links">
+                    <a href="#history">История</a>
+                    <a href="#matrix">Типы матриц</a>
+                    <a href="#connections">Подключения</a>
+                    <a href="#types">Виды мониторов</a>
+                    <a href="#selector">Выбор монитора</a>
+                </div>                
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a, .hero a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        function calculateRecommendation() {
+            const purpose = document.getElementById('purpose').value;
+            const budget = document.getElementById('budget').value;
+            const size = document.getElementById('size').value;
+            
+            if (!purpose || !budget || !size) {
+                alert('Пожалуйста, заполните все поля');
+                return;
+            }
+            
+            let recommendation = '';
+            
+            if (purpose === 'office') {
+                recommendation = 'Для офисной работы рекомендуем монитор с матрицей IPS или VA диагональю 24-27 дюймов. Обратите внимание на наличие регулируемой подставки и антибликового покрытия.';
+                
+                if (budget === 'low') {
+                    recommendation += ' В вашем бюджете хорошим выбором будут модели от AOC, ASUS или Dell серий E/S.';
+                } else if (budget === 'medium') {
+                    recommendation += ' В вашем бюджете рассмотрите модели Dell UltraSharp, HP EliteDisplay или BenQ с улучшенной эргономикой.';
+                }
+            } else if (purpose === 'gaming') {
+                recommendation = 'Для игр важны высокая частота обновления (144 Гц и выше) и малое время отклика. Рекомендуем мониторы с матрицей IPS или TN.';
+                
+                if (budget === 'low') {
+                    recommendation += ' В вашем бюджете обратите внимание на игровые серии AOC G2, ASUS TUF Gaming или Acer Nitro.';
+                } else if (budget === 'medium') {
+                    recommendation += ' В вашем бюджете рассмотрите модели ASUS ROG Swift, Acer Predator или MSI Optix с поддержкой G-Sync/FreeSync.';
+                } else if (budget === 'high' || budget === 'premium') {
+                    recommendation += ' В вашем бюджете доступны топовые игровые мониторы с частотой 240 Гц и выше, технологиями HDR и разрешением 4K.';
+                }
+            } else if (purpose === 'design') {
+                recommendation = 'Для дизайна и фотографии критически важна точная цветопередача. Рекомендуем мониторы с матрицей IPS с широким цветовым охватом (sRGB 99%+, Adobe RGB).';
+                
+                if (budget === 'medium') {
+                    recommendation += ' В вашем бюджете хорошим выбором будут Dell UltraSharp U-series, BenQ PD-series или ASUS ProArt.';
+                } else if (budget === 'high' || budget === 'premium') {
+                    recommendation += ' В вашем бюджете рассмотрите профессиональные модели Eizo ColorEdge, NEC MultiSync или высококлассные серии Dell UP.';
+                }
+            } else if (purpose === 'media') {
+                recommendation = 'Для просмотра фильмов важны высокая контрастность и качественная цветопередача. Рекомендуем мониторы с матрицей VA или IPS.';
+                
+                if (size === 'ultrawide') {
+                    recommendation += ' Ультраширокий монитор создаст эффект кинотеатра.';
+                }
+                
+                if (budget === 'medium' || budget === 'high') {
+                    recommendation += ' Обратите внимание на модели с поддержкой HDR для более насыщенного изображения.';
+                }
+            } else if (purpose === 'universal') {
+                recommendation = 'Для универсального использования рекомендуем монитор с матрицей IPS - это оптимальный баланс между качеством изображения, временем отклика и ценой.';
+                
+                if (budget === 'medium') {
+                    recommendation += ' В вашем бюджете хорошим выбором будут модели Dell P-series, LG UltraFine или Samsung с диагональю 27 дюймов.';
+                }
+            }
+            
+            if (size === 'small') {
+                recommendation += ' Выбранный размер отлично подойдет для компактного рабочего пространства.';
+            } else if (size === 'medium') {
+                recommendation += ' Это самый популярный и универсальный размер для большинства задач.';
+            } else if (size === 'large' || size === 'ultrawide') {
+                recommendation += ' Большой монитор обеспечит комфортную работу с несколькими окнами одновременно и иммерсивный опыт в играх и фильмах.';
+            }
+            
+            document.getElementById('recommendation-text').textContent = recommendation;
+            document.getElementById('result').style.display = 'block';
+            
+            document.getElementById('result').scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        }
+    </script>
+</body>
+</html>
